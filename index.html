@@ -1,13 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Claude pra Doutoras</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#141414">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Claude pra Doutoras · Workshop ao vivo 22/11">
+<meta property="og:description" content="Aprenda a dominar o Claude do zero ao avançado e trate a sua clínica como uma empresa. Domingo, 22/11, das 9h às 16h30, online.">
 <meta name="description" content="Workshop Claude pra Doutoras · ao vivo no domingo 22/11, das 9h às 16h30. Aprenda a dominar o Claude do zero ao avançado e trate a sua clínica como uma empresa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,300..700;1,300&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,300..700;1,300&display=swap"></noscript>
 <style>
-/* Layout: faixas alternadas (preto / creme), coluna central de 1080px, CTA vermelho repetido,
-   barra fixa de preço no rodapé. Cores e fontes da Academia da Independência
-   (vermelho #8b1a1a, dourado #daa66e, creme #f5f0e8; títulos em Impact, texto em Roboto). */
 :root{
   --noir:#141414;
   --chocolate:#1c1c1c;
@@ -59,7 +66,7 @@ a{color:inherit}
 .light .eyebrow,.blushband .eyebrow{color:var(--berry)}
 .sec-head{display:flex;flex-direction:column;gap:16px;max-width:760px}
 .sec-head.center{align-self:center;text-align:center;align-items:center}
-.sec-head h2{font-size:clamp(28px,4.2vw,44px)}
+.sec-head h2,.contrast h2{font-size:clamp(28px,4.2vw,44px)}
 .sec-head p{font-size:18px;opacity:.82;max-width:62ch}
 
 /* Botões */
@@ -89,13 +96,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   max-width:var(--wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:14px max(20px,env(safe-area-inset-right,0px)) 14px max(20px,env(safe-area-inset-left,0px));
 }
-.brand{font-family:var(--font-head);font-size:19px;font-weight:600;color:var(--cream);text-decoration:none}
-.brand i{color:var(--blush)}
+.brand{font-family:var(--font-head);font-size:19px;text-transform:uppercase;color:var(--cream);text-decoration:none}
+.brand i{font-style:normal;color:var(--blush)}
 .topbar .date{font-size:13px;color:var(--rose-gold);font-weight:600;letter-spacing:.06em}
 .topbar .mini{padding:10px 18px;font-size:12px;box-shadow:none}
 
 /* Hero */
-.hero{position:relative;overflow:hidden;padding-block:72px 96px}
+.hero{position:relative;overflow:hidden;padding-block:clamp(28px,5vh,56px);min-height:calc(100svh - 62px);display:flex;align-items:center}
 .hero::before{
   content:"";position:absolute;width:780px;height:780px;right:-260px;top:-300px;border-radius:50%;
   background:radial-gradient(circle,rgba(139,26,26,.55),transparent 65%);pointer-events:none;
@@ -104,29 +111,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   content:"";position:absolute;width:560px;height:560px;left:-280px;bottom:-320px;border-radius:50%;
   background:radial-gradient(circle,rgba(218,166,110,.22),transparent 65%);pointer-events:none;
 }
-.hero .wrap{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero .wrap{position:relative;z-index:1;width:100%}
+.hero-grid{display:grid;grid-template-columns:1fr;max-width:860px}
 
-/* Nome do Claude em destaque (hero) */
-.claude-name{
-  position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;
-  padding:48px 32px;border-radius:var(--r-card);overflow:hidden;
-  background:linear-gradient(160deg,rgba(139,26,26,.45),rgba(20,20,20,.6) 70%);
-  border:1px solid rgba(218,166,110,.22);box-shadow:0 30px 80px rgba(0,0,0,.55);
-}
-.claude-name .mark{width:clamp(64px,7vw,92px);height:auto;filter:drop-shadow(0 8px 24px rgba(217,119,87,.35))}
-.claude-name .k{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-gold)}
-.claude-name b{
-  font:400 clamp(72px,9vw,128px)/.9 var(--font-head);text-transform:uppercase;letter-spacing:.01em;color:var(--gold);
-}
-.claude-name .s{font-size:16px;color:rgba(245,240,232,.78);max-width:30ch}
-.claude-name .lv{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.claude-name .lv span{
-  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  padding:7px 14px;border-radius:var(--r-pill);border:1px solid rgba(218,166,110,.28);color:var(--cream);background:rgba(245,240,232,.04);
-}
-.claude-name .lv span:first-child{background:var(--berry);border-color:var(--berry)}
-.hero-copy{display:flex;flex-direction:column;gap:24px}
+.hero-copy{display:flex;flex-direction:column;gap:clamp(14px,2.4vh,24px)}
 .badges{display:flex;flex-wrap:wrap;gap:8px}
 .badge{
   font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
@@ -135,9 +123,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 }
 .badge.live{display:inline-flex;align-items:center;gap:8px}
 .badge.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff5d6c;box-shadow:0 0 0 4px rgba(255,93,108,.2)}
-.hero h1{font-size:clamp(34px,5.2vw,58px);letter-spacing:-.01em}
-.hero .sub{font-size:19px;color:rgba(245,240,232,.82);max-width:54ch}
-.hero .sub strong{color:var(--cream);font-weight:600;display:block;font-family:var(--font-head);font-style:italic;font-size:24px;margin-bottom:8px}
+.hero h1{font-size:clamp(30px,min(4.6vw,6.2vh),56px);letter-spacing:-.01em}
+.hero .sub{font-size:clamp(16px,2.2vh,19px);color:rgba(245,240,232,.82);max-width:54ch}
+.hero .sub strong{color:var(--cream);font-weight:400;display:block;font-family:var(--font-head);text-transform:uppercase;font-size:24px;margin-bottom:8px}
 .hero .cta-row{align-items:flex-start}
 .facts{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:rgba(245,240,232,.72)}
 .facts span{display:inline-flex;align-items:center;gap:8px}
@@ -156,26 +144,6 @@ figure{margin:0}
 figure.pic{display:flex;flex-direction:column;gap:10px}
 .ill{font-size:13px;opacity:.65;text-align:center}
 
-/* Mockup do Projeto (hero) */
-.project{
-  background:linear-gradient(180deg,#1e1e1e,#141414);border:1px solid rgba(218,166,110,.16);
-  border-radius:var(--r-card);box-shadow:0 30px 80px rgba(0,0,0,.55);overflow:hidden;
-  font-size:14px;
-}
-.project .bar{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(218,166,110,.1);color:rgba(245,240,232,.7)}
-.project .bar b{color:var(--cream);font-weight:600}
-.project .dot{width:9px;height:9px;border-radius:50%;background:var(--rose-gold)}
-.project .body{padding:18px;display:flex;flex-direction:column;gap:14px}
-.ctx{display:flex;flex-wrap:wrap;gap:6px}
-.ctx span{font-size:11.5px;padding:5px 10px;border-radius:8px;background:rgba(218,166,110,.08);color:var(--blush);border:1px solid rgba(218,166,110,.12)}
-.msg{padding:12px 14px;border-radius:14px;line-height:1.5;max-width:92%}
-.msg.me{align-self:flex-end;background:var(--berry);color:#fff;border-bottom-right-radius:4px}
-.msg.ai{background:rgba(245,240,232,.06);border:1px solid rgba(218,166,110,.1);border-bottom-left-radius:4px;color:rgba(245,240,232,.9)}
-.marg{margin-top:10px;display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-variant-numeric:tabular-nums;font-size:13px}
-.marg .v{text-align:right;font-weight:600}
-.marg .v.ok{color:var(--ok)}
-.marg .v.low{color:#F08A8A}
-
 /* Linhas com imagem + texto */
 .feat{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:48px;align-items:center}
 .feat.rev{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr)}
@@ -190,7 +158,7 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
 /* Quebra de crença */
 .contrast{display:flex;flex-direction:column;gap:20px;max-width:780px}
 .contrast p{font-size:18px;color:rgba(245,240,232,.82)}
-.pull{display:flex;flex-direction:column;gap:4px;font-family:var(--font-head);font-size:clamp(22px,3vw,30px);line-height:1.25}
+.pull{display:flex;flex-direction:column;gap:4px;font-family:var(--font-head);text-transform:uppercase;font-size:clamp(22px,3vw,30px);line-height:1.25}
 .pull span:first-child{color:rgba(245,240,232,.55)}
 .pull span:last-child{color:var(--blush)}
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -204,7 +172,7 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
 .vs-new{background:linear-gradient(160deg,rgba(139,26,26,.55),rgba(107,18,18,.4));border:1px solid rgba(218,166,110,.3);color:var(--cream)}
 .vs-new h3{color:var(--blush)}
 .vs-new li::before{content:"✓";background:var(--blush);color:var(--berry-dark)}
-.analogy{font-family:var(--font-head);font-style:italic;font-size:21px;line-height:1.45;color:rgba(245,240,232,.9);max-width:720px;align-self:center;text-align:center}
+.analogy{font-family:var(--font-body);font-style:italic;font-weight:300;font-size:21px;line-height:1.45;color:rgba(245,240,232,.9);max-width:720px;align-self:center;text-align:center}
 
 /* Ampliar imagem */
 .lightbox{
@@ -237,7 +205,7 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
 .pains li::before{content:"";width:10px;height:10px;margin-top:8px;border-radius:50%;background:#E5675F;box-shadow:0 0 0 5px rgba(229,103,95,.15)}
 .verdict{
   font-family:var(--font-head);font-size:clamp(22px,3vw,30px);line-height:1.3;text-align:center;
-  max-width:760px;align-self:center;color:var(--blush);font-style:italic;
+  max-width:760px;align-self:center;color:var(--blush);text-transform:uppercase;
 }
 
 /* Solução */
@@ -249,10 +217,10 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
 .roles span:nth-child(3n+1){background:var(--berry);color:#fff;border-color:var(--berry)}
 .method{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .step{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:var(--r-card);background:#fff;border:1px solid rgba(139,26,26,.12)}
-.step .n{font-family:var(--font-head);font-size:44px;line-height:1;color:var(--berry);font-style:italic}
+.step .n{font-family:var(--font-head);font-size:44px;line-height:1;color:var(--berry)}
 .step h3{font-size:22px}
 .step p{font-size:15.5px;opacity:.82}
-.subhead{font-family:var(--font-head);font-size:26px;text-align:center}
+.subhead{font-family:var(--font-head);font-size:26px;text-align:center;text-transform:uppercase}
 .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .level{display:flex;flex-direction:column;gap:12px;padding:26px;border-radius:var(--r-card);border:1px solid rgba(139,26,26,.14);background:rgba(255,255,255,.55)}
 .level .tag{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:var(--r-pill);background:rgba(139,26,26,.1);color:var(--berry)}
@@ -260,12 +228,6 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
 .level.here .tag{background:var(--blush);color:var(--berry-dark)}
 .level h3{font-size:22px}
 .level p{font-size:15px;opacity:.85}
-
-/* Semana */
-.week{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.day{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:var(--r-card);background:rgba(245,240,232,.04);border:1px solid rgba(218,166,110,.14)}
-.day b{font-family:var(--font-head);font-size:20px;color:var(--blush);font-weight:600}
-.day p{font-size:15px;color:rgba(245,240,232,.8)}
 
 /* Para quem */
 .who{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -276,7 +238,7 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
   display:flex;flex-direction:column;gap:10px;padding:30px 32px;border-radius:var(--r-card);
   background:var(--berry);color:#fff;font-size:17.5px;line-height:1.55;
 }
-.callout b{font-family:var(--font-head);font-size:22px;font-weight:600;line-height:1.3}
+.callout b{font-family:var(--font-head);font-size:22px;font-weight:400;line-height:1.3;text-transform:uppercase}
 
 /* Programação */
 .agenda-meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
@@ -285,11 +247,11 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
 .slot{display:grid;grid-template-columns:90px 1fr 1fr;gap:20px;padding:18px 26px;align-items:baseline;border-top:1px solid rgba(218,166,110,.09)}
 .slot:first-child{border-top:0}
 .slot .t{font-variant-numeric:tabular-nums;font-weight:700;color:var(--rose-gold);font-size:15px}
-.slot .b{font-family:var(--font-head);font-size:19px;font-weight:600}
+.slot .b{font-weight:700;font-size:16.5px}
 .slot .o{font-size:14.5px;color:rgba(245,240,232,.7)}
 .slot .o::before{content:"→ ";color:var(--blush)}
 .slot.pause{background:rgba(245,240,232,.035)}
-.slot.pause .b{font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)}
+.slot.pause .b{font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)}
 .slot.bonus .b::after{content:"bônus";margin-left:10px;vertical-align:3px;font:700 10px var(--font-body);letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-pill);background:var(--gold);color:var(--noir)}
 .prep{font-size:16px;text-align:center;color:rgba(245,240,232,.78);max-width:62ch;align-self:center}
 
@@ -317,8 +279,8 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
 .offer tr.total td:last-child{color:rgba(245,240,232,.75)}
 .price{padding:28px 32px 34px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;background:linear-gradient(180deg,rgba(139,26,26,0),rgba(139,26,26,.35))}
 .price .lead{font-size:15px;color:rgba(245,240,232,.78);max-width:42ch}
-.price .big{font-family:var(--font-head);font-size:64px;line-height:1;font-weight:700;color:var(--cream);font-variant-numeric:tabular-nums}
-.price .big small{font-size:22px;font-weight:600;vertical-align:22px;margin-right:4px;color:var(--blush)}
+.price .big{font-family:var(--font-head);font-size:64px;line-height:1;color:var(--cream);font-variant-numeric:tabular-nums}
+.price .big small{font-size:22px;vertical-align:22px;margin-right:4px;color:var(--blush)}
 .price .inst{font-size:15px;color:var(--blush)}
 .price .btn{width:100%}
 .seals{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font-size:12.5px;color:rgba(245,240,232,.6)}
@@ -337,11 +299,6 @@ figure.pic{display:flex;flex-direction:column;gap:10px}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .a{padding:0 24px 22px;font-size:15.5px;color:rgba(20,20,20,.85);max-width:65ch}
 
-/* Fechamento */
-.closing{text-align:center;align-items:center}
-.closing h2{font-size:clamp(30px,4.6vw,50px);max-width:800px}
-.closing p{font-size:18px;color:rgba(245,240,232,.8);max-width:56ch}
-
 footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-align:center;padding:28px max(20px,env(safe-area-inset-right,0px)) 28px max(20px,env(safe-area-inset-left,0px));border-top:1px solid rgba(218,166,110,.08)}
 
 /* Barra fixa */
@@ -353,7 +310,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
 }
 .stickybar .in{max-width:var(--wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .stickybar .p{display:flex;flex-direction:column;line-height:1.25}
-.stickybar .p b{font-family:var(--font-head);font-size:22px;color:var(--cream)}
+.stickybar .p b{font-family:var(--font-head);font-weight:400;font-size:22px;color:var(--cream)}
 .stickybar .p span{font-size:12.5px;color:var(--rose-gold)}
 .stickybar .btn{padding:14px 24px;font-size:13px}
 
@@ -364,8 +321,6 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
 }
 
 @media (max-width:920px){
-  .hero-grid{grid-template-columns:1fr;gap:44px}
-  .week{grid-template-columns:repeat(2,1fr)}
   .method,.levels,.who,.gifts{grid-template-columns:1fr}
   .gift.featured{grid-column:auto}
   .feat,.feat.rev{grid-template-columns:1fr;gap:24px}
@@ -373,8 +328,8 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
 }
 @media (max-width:680px){
   .band{padding-block:64px}
-  .hero{padding-block:44px 64px}
-  .vs,.deliver,.pains,.week{grid-template-columns:1fr}
+  .hero{padding-block:32px 48px;min-height:0}
+  .vs,.deliver,.pains{grid-template-columns:1fr}
   .slot{grid-template-columns:64px 1fr;gap:4px 14px;padding:16px 18px}
   .slot .o{grid-column:2}
   .topbar .date{display:none}
@@ -387,18 +342,15 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
   .feats{gap:56px}
   .vs-col{padding:22px}
 }
-/* Impact não tem itálico nem negrito: evita versões falsas */
-.brand,.brand i,.hero .sub strong,.pull,.pull span,.analogy,.verdict,.step .n,.subhead,.day b,.slot .b,.callout b,.price .big,.price .big small,.stickybar .p b{font-style:normal;font-weight:400}
-.brand,.hero .sub strong,.pull,.verdict,.subhead,.callout b{text-transform:uppercase}
-.slot .b{font-family:var(--font-body);font-weight:700;font-size:16.5px}
-.analogy{font-family:var(--font-body);font-style:italic;font-weight:300}
 </style>
+</head>
+<body>
 
 <header class="topbar">
   <div class="in">
     <a class="brand" href="#topo">Claude <i>pra Doutoras</i></a>
     <span class="date">DOM · 22/11 · AO VIVO</span>
-    <a class="btn mini" href="#oferta">Garantir vaga</a>
+    <a class="btn mini" href="https://chk.eduzz.com/39ZR73KBWE">Garantir vaga</a>
   </div>
 </header>
 
@@ -416,7 +368,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
         <h1 class="rise" style="--d:.08s">Acelere <em class="hl">10 anos</em> do crescimento da sua clínica com a ferramenta de inteligência artificial mais revolucionária do momento.</h1>
         <p class="sub rise" style="--d:.16s"><strong>Aprenda a dominar o Claude do zero ao avançado.</strong>Workshop Claude pra Doutoras ao vivo no domingo, dia 22/11, das 9h às 16h30, para a doutora que decidiu tratar a própria clínica como uma empresa.</p>
         <div class="cta-row rise" style="--d:.24s">
-          <a class="btn" href="#oferta">Quero acelerar a minha clínica <span class="arrow">→</span></a>
+          <a class="btn" href="https://chk.eduzz.com/39ZR73KBWE">Quero acelerar a minha clínica <span class="arrow">→</span></a>
           <span class="cta-note">R$ 27,90 à vista ou 12x de R$ 2,32</span>
         </div>
         <div class="facts rise" style="--d:.3s">
@@ -424,14 +376,6 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
           <span>Tudo em português</span>
           <span>Você constrói com os dados da sua clínica</span>
         </div>
-      </div>
-
-      <div class="claude-name rise" style="--d:.2s">
-        <svg class="mark" role="img" aria-label="Logo do Claude" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="hsl(14.8, 63.1%, 59.6%)"><path d="m19.6 66.5 19.7-11 .3-1-.3-.5h-1l-3.3-.2-11.2-.3L14 53l-9.5-.5-2.4-.5L0 49l.2-1.5 2-1.3 2.9.2 6.3.5 9.5.6 6.9.4L38 49.1h1.6l.2-.7-.5-.4-.4-.4L29 41l-10.6-7-5.6-4.1-3-2-1.5-2-.6-4.2 2.7-3 3.7.3.9.2 3.7 2.9 8 6.1L37 36l1.5 1.2.6-.4.1-.3-.7-1.1L33 25l-6-10.4-2.7-4.3-.7-2.6c-.3-1-.4-2-.4-3l3-4.2L28 0l4.2.6L33.8 2l2.6 6 4.1 9.3L47 29.9l2 3.8 1 3.4.3 1h.7v-.5l.5-7.2 1-8.7 1-11.2.3-3.2 1.6-3.8 3-2L61 2.6l2 2.9-.3 1.8-1.1 7.7L59 27.1l-1.5 8.2h.9l1-1.1 4.1-5.4 6.9-8.6 3-3.5L77 13l2.3-1.8h4.3l3.1 4.7-1.4 4.9-4.4 5.6-3.7 4.7-5.3 7.1-3.2 5.7.3.4h.7l12-2.6 6.4-1.1 7.6-1.3 3.5 1.6.4 1.6-1.4 3.4-8.2 2-9.6 2-14.3 3.3-.2.1.2.3 6.4.6 2.8.2h6.8l12.6 1 3.3 2 1.9 2.7-.3 2-5.1 2.6-6.8-1.6-16-3.8-5.4-1.3h-.8v.4l4.6 4.5 8.3 7.5L89 80.1l.5 2.4-1.3 2-1.4-.2-9.2-7-3.6-3-8-6.8h-.5v.7l1.8 2.7 9.8 14.7.5 4.5-.7 1.4-2.6 1-2.7-.6-5.8-8-6-9-4.7-8.2-.5.4-2.9 30.2-1.3 1.5-3 1.2-2.5-2-1.4-3 1.4-6.2 1.6-8 1.3-6.4 1.2-7.9.7-2.6v-.2H49L43 72l-9 12.3-7.2 7.6-1.7.7-3-1.5.3-2.8L24 86l10-12.8 6-7.9 4-4.6-.1-.5h-.3L17.2 77.4l-4.7.6-2-2 .2-3 1-1 8-5.5Z"></path></svg>
-        <span class="k">A ferramenta</span>
-        <b>Claude</b>
-        <p class="s">A inteligência artificial que entende o negócio inteiro e constrói o que a clínica precisa a partir de uma conversa em português.</p>
-        <div class="lv"><span>Gratuito</span><span>Pro</span><span>Code</span></div>
       </div>
     </div>
   </div>
@@ -442,7 +386,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
   <div class="wrap">
     <div class="contrast">
       <span class="eyebrow">A quebra de crença</span>
-      <h2 style="font-size:clamp(28px,4.2vw,44px)">Se o ChatGPT é a ferramenta mais avançada da sua rotina, você está parada no <em class="hl">primeiro degrau</em> da inteligência artificial.</h2>
+      <h2>Se o ChatGPT é a ferramenta mais avançada da sua rotina, você está parada no <em class="hl">primeiro degrau</em> da inteligência artificial.</h2>
       <p>O ChatGPT apresentou a IA para o mundo em 2022 e virou a ferramenta de quem está começando. Ele ficou familiar e confortável, e esse conforto custa caro para quem tem uma empresa para fazer crescer. As empresárias mais rápidas da estética já estão no Claude, a inteligência artificial que entende o negócio inteiro e constrói o que a clínica precisa a partir de uma conversa em português.</p>
       <div class="pull">
         <span>O ChatGPT foi a porta de entrada.</span>
@@ -474,13 +418,13 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
     <p class="analogy">Usar só o ChatGPT hoje é como marcar paciente na agenda de papel: funciona, e a clínica cresce só até onde o caderno aguenta.</p>
 
     <div class="cta-row">
-      <a class="btn" href="#oferta">Quero acelerar a minha clínica <span class="arrow">→</span></a>
+      <a class="btn" href="https://chk.eduzz.com/39ZR73KBWE">Quero acelerar a minha clínica <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
 <dialog class="lightbox" id="lightbox" aria-label="Imagem ampliada">
-  <img id="lightbox-img" src="" alt="">
+  <img id="lightbox-img" alt="">
   <button type="button" class="close" id="lightbox-close" aria-label="Fechar">×</button>
 </dialog>
 
@@ -501,11 +445,11 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
       <li>O mapa do avançado com o Claude Pro e o Claude Code</li>
     </ul>
     <figure class="pic wide-pic">
-      <button type="button" class="shot"><img src="img/guia-pos-procedimento.webp" width="1600" height="900" alt="Guia pós-procedimento que a paciente abre no celular, com cuidados do dia 1 ao 30 e QR code" loading="lazy"></button>
+      <button type="button" class="shot"><img src="img/guia-pos-procedimento.webp" srcset="img/guia-pos-procedimento-800.webp 800w, img/guia-pos-procedimento.webp 1600w" sizes="(max-width: 920px) 100vw, 920px" width="1600" height="900" alt="Guia pós-procedimento que a paciente abre no celular, com cuidados do dia 1 ao 30 e QR code" loading="lazy" decoding="async"></button>
       <figcaption class="ill">Um site feito com o Claude: o guia pós-procedimento que a paciente abre pelo link ou pelo QR code.</figcaption>
     </figure>
     <div class="cta-row">
-      <a class="btn" href="#oferta">Quero acelerar a minha clínica <span class="arrow">→</span></a>
+      <a class="btn" href="https://chk.eduzz.com/39ZR73KBWE">Quero acelerar a minha clínica <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -556,17 +500,6 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
       <div class="level"><span class="tag">Próximo passo</span><h3>Claude Pro</h3><p>Sistemas que guardam os dados, tarefas agendadas e o Claude navegando na internet por você.</p></div>
       <div class="level"><span class="tag">Avançado</span><h3>Claude Code</h3><p>Sistemas e aplicativos completos, sob medida para a sua clínica.</p></div>
     </div>
-
-    <div class="feat rev">
-      <figure class="pic">
-        <button type="button" class="shot"><img src="img/app-social-media.webp" width="1600" height="900" alt="Aplicativo com ideia do dia, próximas datas comerciais e semana de conteúdo" loading="lazy"></button>
-      </figure>
-      <div class="feat-copy">
-        <span class="when">Onde o Claude Code chega</span>
-        <h3>Um aplicativo que funciona como a sua social media</h3>
-        <p>Ideias estratégicas de conteúdo todos os dias e as próximas datas sazonais para ações comerciais. No fim do workshop, você vê o mapa para chegar nesse nível.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -580,7 +513,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
     <div class="feats">
       <div class="feat">
         <figure class="pic">
-          <button type="button" class="shot"><img src="img/gerentes-conteudo.webp" width="1600" height="900" alt="Gerente de tendências e gerente nerd com a pauta da semana" loading="lazy"></button>
+          <button type="button" class="shot"><img src="img/gerentes-conteudo.webp" srcset="img/gerentes-conteudo-800.webp 800w, img/gerentes-conteudo.webp 1600w" sizes="(max-width: 920px) 100vw, 600px" width="1600" height="900" alt="Gerente de tendências e gerente nerd com a pauta da semana" loading="lazy" decoding="async"></button>
         </figure>
         <div class="feat-copy">
           <span class="when">Segunda de manhã</span>
@@ -590,7 +523,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
       </div>
       <div class="feat rev">
         <figure class="pic">
-          <button type="button" class="shot"><img src="img/painel-secretaria.webp" width="1600" height="900" alt="Painel da secretária com follow-ups atrasados e de hoje, procedimentos mais procurados e objeções" loading="lazy"></button>
+          <button type="button" class="shot"><img src="img/painel-secretaria.webp" srcset="img/painel-secretaria-800.webp 800w, img/painel-secretaria.webp 1600w" sizes="(max-width: 920px) 100vw, 600px" width="1600" height="900" alt="Painel da secretária com follow-ups atrasados e de hoje, procedimentos mais procurados e objeções" loading="lazy" decoding="async"></button>
         </figure>
         <div class="feat-copy">
           <span class="when">Na recepção</span>
@@ -600,7 +533,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
       </div>
       <div class="feat">
         <figure class="pic">
-          <button type="button" class="shot"><img src="img/plano-tratamento.webp" width="1600" height="900" alt="Skill de plano de tratamento com versão da paciente em 3 fases e manutenção" loading="lazy"></button>
+          <button type="button" class="shot"><img src="img/plano-tratamento.webp" srcset="img/plano-tratamento-800.webp 800w, img/plano-tratamento.webp 1600w" sizes="(max-width: 920px) 100vw, 600px" width="1600" height="900" alt="Skill de plano de tratamento com versão da paciente em 3 fases e manutenção" loading="lazy" decoding="async"></button>
         </figure>
         <div class="feat-copy">
           <span class="when">Na avaliação</span>
@@ -610,7 +543,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
       </div>
       <div class="feat rev">
         <figure class="pic">
-          <button type="button" class="shot"><img src="img/financeiro.webp" width="1600" height="900" alt="Financeiro do mês com meta, combinações que fecham o mês, margem por procedimento e alerta de estoque" loading="lazy"></button>
+          <button type="button" class="shot"><img src="img/financeiro.webp" srcset="img/financeiro-800.webp 800w, img/financeiro.webp 1600w" sizes="(max-width: 920px) 100vw, 600px" width="1600" height="900" alt="Financeiro do mês com meta, combinações que fecham o mês, margem por procedimento e alerta de estoque" loading="lazy" decoding="async"></button>
         </figure>
         <div class="feat-copy">
           <span class="when">No fim do mês</span>
@@ -678,7 +611,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
       <h2>Skills prontas para <em class="hl">levar para casa</em></h2>
     </div>
     <figure class="pic wide-pic">
-      <button type="button" class="shot"><img src="img/concorrentes.webp" width="1600" height="900" alt="Análise de 3 concorrentes com promessa, produto, formato, dor e o espaço livre no mercado" loading="lazy"></button>
+      <button type="button" class="shot"><img src="img/concorrentes.webp" srcset="img/concorrentes-800.webp 800w, img/concorrentes.webp 1600w" sizes="(max-width: 920px) 100vw, 920px" width="1600" height="900" alt="Análise de 3 concorrentes com promessa, produto, formato, dor e o espaço livre no mercado" loading="lazy" decoding="async"></button>
       <figcaption class="ill">A skill de análise de concorrentes em ação.</figcaption>
     </figure>
       <div class="gifts">
@@ -714,7 +647,7 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
         <p class="lead">Tudo isso deveria custar R$ 930,00. Hoje você garante por menos que o valor de um almoço.</p>
         <div class="big"><small>R$</small>27,90</div>
         <span class="inst">à vista ou 12x de R$ 2,32</span>
-        <a class="btn" href="#checkout" data-checkout>Quero a minha vaga no dia 22/11 <span class="arrow">→</span></a>
+        <a class="btn" href="https://chk.eduzz.com/39ZR73KBWE">Quero a minha vaga no dia 22/11 <span class="arrow">→</span></a>
         <div class="seals">
           <span><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Compra 100% segura</span>
           <span><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Cartão em até 12x</span>
@@ -737,22 +670,9 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
       <details><summary>Preciso pagar o Claude?</summary><p class="a">Para o workshop, a conta gratuita basta. No fim do dia, você conhece o Pro e o Claude Code e decide o próximo passo.</p></details>
       <details><summary>Preciso entender de tecnologia?</summary><p class="a">Tudo é feito conversando em português, passo a passo.</p></details>
       <details><summary>Posso assistir pelo celular?</summary><p class="a">Para assistir, sim. Para construir junto, o ideal é o notebook.</p></details>
-      <details><summary>Vai ficar gravado?</summary><p class="a">Não. O workshop acontece só ao vivo, no dia 22/11.</p></details>
+      <details><summary>Vai ficar gravado?</summary><p class="a">Não.</p></details>
       <details><summary>Os dados das minhas pacientes ficam seguros?</summary><p class="a">Você aprende a usar o Claude sem expor dados sensíveis, como CPF, foto ou prontuário de paciente.</p></details>
-      <details><summary>O que preciso ter no dia?</summary><p class="a">Notebook, conta no Claude criada e o formulário que vamos encaminhar no grupo respondido.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- FECHAMENTO -->
-<section class="band choc">
-  <div class="wrap closing">
-    <span class="eyebrow">Domingo, 22/11 · 9h</span>
-    <h2>Domine a técnica. <em class="hl">Comande a empresa.</em></h2>
-    <p>Um domingo para sair com a gerente da sua clínica, o site no ar, o comercial e o financeiro organizados.</p>
-    <div class="cta-row">
-      <a class="btn" href="#oferta">Quero a minha vaga no dia 22/11 <span class="arrow">→</span></a>
-      <span class="cta-note">R$ 27,90 à vista ou 12x de R$ 2,32</span>
+      <details><summary>O que preciso ter no dia?</summary><p class="a">Notebook, conta no Claude criada e o formulário que vamos ter encaminhado no grupo respondido.</p></details>
     </div>
   </div>
 </section>
@@ -764,24 +684,18 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
 <div class="stickybar" role="region" aria-label="Garantir vaga">
   <div class="in">
     <div class="p"><b>R$ 27,90</b><span>ou 12x de R$ 2,32 · 22/11 ao vivo</span></div>
-    <a class="btn" href="#checkout" data-checkout>Garantir vaga <span class="arrow">→</span></a>
+    <a class="btn" href="https://chk.eduzz.com/39ZR73KBWE">Garantir vaga <span class="arrow">→</span></a>
   </div>
 </div>
 
 <script>
-  // Troque pelo link do checkout (Hotmart, Kiwify, Eduzz...). Enquanto vazio, o botão leva para a oferta.
-  const CHECKOUT_URL = "";
-  document.querySelectorAll("[data-checkout]").forEach(a => {
-    a.href = CHECKOUT_URL || "#oferta";
-  });
-
   // Ampliar imagem
   const box = document.getElementById("lightbox");
   const boxImg = document.getElementById("lightbox-img");
   document.querySelectorAll(".shot").forEach(btn => {
     btn.addEventListener("click", () => {
       const img = btn.querySelector("img");
-      boxImg.src = img.currentSrc || img.src;
+      boxImg.src = img.src; // sempre a versão grande no zoom
       boxImg.alt = img.alt;
       if (box.showModal) box.showModal();
     });
@@ -789,3 +703,5 @@ footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-ali
   document.getElementById("lightbox-close").addEventListener("click", () => box.close());
   box.addEventListener("click", e => { if (e.target === box) box.close(); });
 </script>
+</body>
+</html>
