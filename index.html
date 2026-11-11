@@ -1,0 +1,791 @@
+<title>Claude pra Doutoras</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Workshop Claude pra Doutoras · ao vivo no domingo 22/11, das 9h às 16h30. Aprenda a dominar o Claude do zero ao avançado e trate a sua clínica como uma empresa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+<style>
+/* Layout: faixas alternadas (preto / creme), coluna central de 1080px, CTA vermelho repetido,
+   barra fixa de preço no rodapé. Cores e fontes da Academia da Independência
+   (vermelho #8b1a1a, dourado #daa66e, creme #f5f0e8; títulos em Impact, texto em Roboto). */
+:root{
+  --noir:#141414;
+  --chocolate:#1c1c1c;
+  --espresso:#1c1c1c;
+  --berry:#8b1a1a;
+  --berry-dark:#6b1212;
+  --blush:#daa66e;
+  --rose-gold:#b8844a;
+  --gold:#daa66e;
+  --cream:#f5f0e8;
+  --cream-2:#eae3d6;
+  --ok:#5BC77A;
+  --font-head:Impact,'Anton','Arial Narrow',Arial,sans-serif;
+  --font-body:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r-card:20px;
+  --r-pill:999px;
+  --wrap:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--noir);color:var(--cream);
+  font-family:var(--font-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom,0px));
+}
+h1,h2,h3{font-family:var(--font-head);font-weight:400;line-height:1.05;margin:0;text-wrap:balance;text-transform:uppercase;letter-spacing:-.005em}
+p{margin:0}
+em.hl{font-style:normal;color:var(--blush)}
+.light em.hl{color:var(--berry)}
+a{color:inherit}
+
+.band{padding-block:88px}
+.band > .wrap{
+  max-width:var(--wrap);margin:0 auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:40px;
+}
+.dark{background:var(--noir);color:var(--cream)}
+.choc{background:linear-gradient(160deg,var(--chocolate),var(--noir) 75%);color:var(--cream)}
+.light{background:var(--cream);color:var(--espresso)}
+.blushband{background:var(--cream-2);color:var(--espresso)}
+
+.eyebrow{
+  font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--rose-gold);
+}
+.light .eyebrow,.blushband .eyebrow{color:var(--berry)}
+.sec-head{display:flex;flex-direction:column;gap:16px;max-width:760px}
+.sec-head.center{align-self:center;text-align:center;align-items:center}
+.sec-head h2{font-size:clamp(28px,4.2vw,44px)}
+.sec-head p{font-size:18px;opacity:.82;max-width:62ch}
+
+/* Botões */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:18px 34px;border-radius:var(--r-pill);border:0;cursor:pointer;
+  font:700 15px/1.2 var(--font-body);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
+  color:#fff;background:linear-gradient(135deg,#a52222,var(--berry) 55%,var(--berry-dark));
+  box-shadow:0 14px 34px rgba(139,26,26,.45),inset 0 1px 0 rgba(255,255,255,.18);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(139,26,26,.55),inset 0 1px 0 rgba(255,255,255,.18)}
+.btn:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn .arrow{transition:transform .2s}
+.btn:hover .arrow{transform:translateX(4px)}
+.cta-row{display:flex;flex-direction:column;align-items:center;gap:12px}
+.cta-note{font-size:13px;opacity:.7}
+
+/* Topo */
+.topbar{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:rgba(20,20,20,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(218,166,110,.1);
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--noir)}
+.topbar .in{
+  max-width:var(--wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px max(20px,env(safe-area-inset-right,0px)) 14px max(20px,env(safe-area-inset-left,0px));
+}
+.brand{font-family:var(--font-head);font-size:19px;font-weight:600;color:var(--cream);text-decoration:none}
+.brand i{color:var(--blush)}
+.topbar .date{font-size:13px;color:var(--rose-gold);font-weight:600;letter-spacing:.06em}
+.topbar .mini{padding:10px 18px;font-size:12px;box-shadow:none}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding-block:72px 96px}
+.hero::before{
+  content:"";position:absolute;width:780px;height:780px;right:-260px;top:-300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(139,26,26,.55),transparent 65%);pointer-events:none;
+}
+.hero::after{
+  content:"";position:absolute;width:560px;height:560px;left:-280px;bottom:-320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(218,166,110,.22),transparent 65%);pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+
+/* Nome do Claude em destaque (hero) */
+.claude-name{
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;
+  padding:48px 32px;border-radius:var(--r-card);overflow:hidden;
+  background:linear-gradient(160deg,rgba(139,26,26,.45),rgba(20,20,20,.6) 70%);
+  border:1px solid rgba(218,166,110,.22);box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+.claude-name .mark{width:clamp(64px,7vw,92px);height:auto;filter:drop-shadow(0 8px 24px rgba(217,119,87,.35))}
+.claude-name .k{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-gold)}
+.claude-name b{
+  font:400 clamp(72px,9vw,128px)/.9 var(--font-head);text-transform:uppercase;letter-spacing:.01em;color:var(--gold);
+}
+.claude-name .s{font-size:16px;color:rgba(245,240,232,.78);max-width:30ch}
+.claude-name .lv{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.claude-name .lv span{
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 14px;border-radius:var(--r-pill);border:1px solid rgba(218,166,110,.28);color:var(--cream);background:rgba(245,240,232,.04);
+}
+.claude-name .lv span:first-child{background:var(--berry);border-color:var(--berry)}
+.hero-copy{display:flex;flex-direction:column;gap:24px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 14px;border-radius:var(--r-pill);
+  border:1px solid rgba(218,166,110,.28);color:var(--blush);background:rgba(218,166,110,.06);
+}
+.badge.live{display:inline-flex;align-items:center;gap:8px}
+.badge.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff5d6c;box-shadow:0 0 0 4px rgba(255,93,108,.2)}
+.hero h1{font-size:clamp(34px,5.2vw,58px);letter-spacing:-.01em}
+.hero .sub{font-size:19px;color:rgba(245,240,232,.82);max-width:54ch}
+.hero .sub strong{color:var(--cream);font-weight:600;display:block;font-family:var(--font-head);font-style:italic;font-size:24px;margin-bottom:8px}
+.hero .cta-row{align-items:flex-start}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:rgba(245,240,232,.72)}
+.facts span{display:inline-flex;align-items:center;gap:8px}
+.facts span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--rose-gold)}
+
+/* Imagens */
+.shot{
+  padding:0;border:0;background:none;cursor:zoom-in;border-radius:18px;overflow:hidden;display:block;width:100%;
+  box-shadow:0 24px 60px rgba(0,0,0,.4);transition:transform .25s ease;
+}
+.light .shot,.blushband .shot{box-shadow:0 24px 60px rgba(139,26,26,.18)}
+.shot:hover{transform:translateY(-4px)}
+.shot:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.shot img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/9;background:#f5f0e8}
+figure{margin:0}
+figure.pic{display:flex;flex-direction:column;gap:10px}
+.ill{font-size:13px;opacity:.65;text-align:center}
+
+/* Mockup do Projeto (hero) */
+.project{
+  background:linear-gradient(180deg,#1e1e1e,#141414);border:1px solid rgba(218,166,110,.16);
+  border-radius:var(--r-card);box-shadow:0 30px 80px rgba(0,0,0,.55);overflow:hidden;
+  font-size:14px;
+}
+.project .bar{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(218,166,110,.1);color:rgba(245,240,232,.7)}
+.project .bar b{color:var(--cream);font-weight:600}
+.project .dot{width:9px;height:9px;border-radius:50%;background:var(--rose-gold)}
+.project .body{padding:18px;display:flex;flex-direction:column;gap:14px}
+.ctx{display:flex;flex-wrap:wrap;gap:6px}
+.ctx span{font-size:11.5px;padding:5px 10px;border-radius:8px;background:rgba(218,166,110,.08);color:var(--blush);border:1px solid rgba(218,166,110,.12)}
+.msg{padding:12px 14px;border-radius:14px;line-height:1.5;max-width:92%}
+.msg.me{align-self:flex-end;background:var(--berry);color:#fff;border-bottom-right-radius:4px}
+.msg.ai{background:rgba(245,240,232,.06);border:1px solid rgba(218,166,110,.1);border-bottom-left-radius:4px;color:rgba(245,240,232,.9)}
+.marg{margin-top:10px;display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-variant-numeric:tabular-nums;font-size:13px}
+.marg .v{text-align:right;font-weight:600}
+.marg .v.ok{color:var(--ok)}
+.marg .v.low{color:#F08A8A}
+
+/* Linhas com imagem + texto */
+.feat{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:48px;align-items:center}
+.feat.rev{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr)}
+.feat.rev > figure{order:2}
+.feat-copy{display:flex;flex-direction:column;gap:14px;max-width:520px}
+.feat-copy .when{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-gold)}
+.light .feat-copy .when,.blushband .feat-copy .when{color:var(--berry)}
+.feat-copy h3{font-size:clamp(24px,3vw,32px)}
+.feat-copy p{font-size:17px;opacity:.82}
+.feats{display:flex;flex-direction:column;gap:72px}
+
+/* Quebra de crença */
+.contrast{display:flex;flex-direction:column;gap:20px;max-width:780px}
+.contrast p{font-size:18px;color:rgba(245,240,232,.82)}
+.pull{display:flex;flex-direction:column;gap:4px;font-family:var(--font-head);font-size:clamp(22px,3vw,30px);line-height:1.25}
+.pull span:first-child{color:rgba(245,240,232,.55)}
+.pull span:last-child{color:var(--blush)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vs-col{border-radius:var(--r-card);padding:28px;display:flex;flex-direction:column;gap:18px}
+.vs-col h3{font-size:22px}
+.vs-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.vs-col li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:15.5px}
+.vs-col li::before{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:1px}
+.vs-old{background:rgba(245,240,232,.03);border:1px solid rgba(245,240,232,.1);color:rgba(245,240,232,.62)}
+.vs-old li::before{content:"–";background:rgba(245,240,232,.08);color:rgba(245,240,232,.5)}
+.vs-new{background:linear-gradient(160deg,rgba(139,26,26,.55),rgba(107,18,18,.4));border:1px solid rgba(218,166,110,.3);color:var(--cream)}
+.vs-new h3{color:var(--blush)}
+.vs-new li::before{content:"✓";background:var(--blush);color:var(--berry-dark)}
+.analogy{font-family:var(--font-head);font-style:italic;font-size:21px;line-height:1.45;color:rgba(245,240,232,.9);max-width:720px;align-self:center;text-align:center}
+
+/* Ampliar imagem */
+.lightbox{
+  border:0;padding:0;background:transparent;max-width:min(96vw,1400px);width:100%;
+}
+.lightbox::backdrop{background:rgba(8,8,8,.88);backdrop-filter:blur(4px)}
+.lightbox img{display:block;width:100%;max-height:86vh;object-fit:contain;border-radius:14px}
+.lightbox .close{
+  position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(20,20,20,.75);color:#fff;font-size:22px;line-height:1;
+}
+
+/* Entregas */
+.deliver{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;list-style:none;margin:0;padding:0}
+.deliver li{
+  display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;
+  background:#fff;border:1px solid rgba(139,26,26,.12);border-radius:16px;padding:20px 22px;font-size:16px;
+}
+.deliver li::before{content:"✓";width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--berry);color:#fff;font-weight:700}
+.deliver li.wide{grid-column:1/-1}
+.wide-pic{max-width:920px;width:100%;align-self:center}
+
+/* Problema */
+.pains{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.pains li{
+  padding:22px 24px;border-radius:16px;font-size:16.5px;
+  background:rgba(245,240,232,.04);border:1px solid rgba(218,166,110,.12);
+  display:grid;grid-template-columns:auto 1fr;gap:14px;
+}
+.pains li::before{content:"";width:10px;height:10px;margin-top:8px;border-radius:50%;background:#E5675F;box-shadow:0 0 0 5px rgba(229,103,95,.15)}
+.verdict{
+  font-family:var(--font-head);font-size:clamp(22px,3vw,30px);line-height:1.3;text-align:center;
+  max-width:760px;align-self:center;color:var(--blush);font-style:italic;
+}
+
+/* Solução */
+.roles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.roles span{
+  padding:10px 18px;border-radius:var(--r-pill);font-size:14.5px;font-weight:500;
+  background:#fff;border:1px solid rgba(139,26,26,.16);color:var(--espresso);
+}
+.roles span:nth-child(3n+1){background:var(--berry);color:#fff;border-color:var(--berry)}
+.method{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:var(--r-card);background:#fff;border:1px solid rgba(139,26,26,.12)}
+.step .n{font-family:var(--font-head);font-size:44px;line-height:1;color:var(--berry);font-style:italic}
+.step h3{font-size:22px}
+.step p{font-size:15.5px;opacity:.82}
+.subhead{font-family:var(--font-head);font-size:26px;text-align:center}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.level{display:flex;flex-direction:column;gap:12px;padding:26px;border-radius:var(--r-card);border:1px solid rgba(139,26,26,.14);background:rgba(255,255,255,.55)}
+.level .tag{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:var(--r-pill);background:rgba(139,26,26,.1);color:var(--berry)}
+.level.here{background:var(--espresso);color:var(--cream);border-color:var(--espresso)}
+.level.here .tag{background:var(--blush);color:var(--berry-dark)}
+.level h3{font-size:22px}
+.level p{font-size:15px;opacity:.85}
+
+/* Semana */
+.week{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.day{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:var(--r-card);background:rgba(245,240,232,.04);border:1px solid rgba(218,166,110,.14)}
+.day b{font-family:var(--font-head);font-size:20px;color:var(--blush);font-weight:600}
+.day p{font-size:15px;color:rgba(245,240,232,.8)}
+
+/* Para quem */
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.who-card{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:var(--r-card);background:#fff;border:1px solid rgba(139,26,26,.12)}
+.who-card h3{font-size:20px;color:var(--berry)}
+.who-card p{font-size:15.5px}
+.callout{
+  display:flex;flex-direction:column;gap:10px;padding:30px 32px;border-radius:var(--r-card);
+  background:var(--berry);color:#fff;font-size:17.5px;line-height:1.55;
+}
+.callout b{font-family:var(--font-head);font-size:22px;font-weight:600;line-height:1.3}
+
+/* Programação */
+.agenda-meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.agenda-meta .badge{font-size:13px}
+.agenda{border-radius:var(--r-card);border:1px solid rgba(218,166,110,.14);overflow:hidden;background:rgba(245,240,232,.02)}
+.slot{display:grid;grid-template-columns:90px 1fr 1fr;gap:20px;padding:18px 26px;align-items:baseline;border-top:1px solid rgba(218,166,110,.09)}
+.slot:first-child{border-top:0}
+.slot .t{font-variant-numeric:tabular-nums;font-weight:700;color:var(--rose-gold);font-size:15px}
+.slot .b{font-family:var(--font-head);font-size:19px;font-weight:600}
+.slot .o{font-size:14.5px;color:rgba(245,240,232,.7)}
+.slot .o::before{content:"→ ";color:var(--blush)}
+.slot.pause{background:rgba(245,240,232,.035)}
+.slot.pause .b{font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)}
+.slot.bonus .b::after{content:"bônus";margin-left:10px;vertical-align:3px;font:700 10px var(--font-body);letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-pill);background:var(--gold);color:var(--noir)}
+.prep{font-size:16px;text-align:center;color:rgba(245,240,232,.78);max-width:62ch;align-self:center}
+
+/* Bônus */
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gift{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:var(--r-card);background:#fff;border:1px dashed rgba(139,26,26,.35)}
+.gift .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-gold)}
+.gift h3{font-size:20px}
+.gift p{font-size:15px;opacity:.8}
+.gift.featured{grid-column:span 2;background:var(--espresso);color:var(--cream);border:1px solid var(--espresso)}
+.gift.featured .k{color:var(--gold)}
+
+/* Oferta */
+.offer{
+  max-width:640px;width:100%;align-self:center;border-radius:28px;overflow:hidden;
+  background:linear-gradient(180deg,#1c1c1c,#121212);border:1px solid rgba(218,166,110,.22);
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+.offer .top{padding:30px 32px 10px;text-align:center;display:flex;flex-direction:column;gap:6px}
+.offer .top h3{font-size:28px}
+.offer table{width:100%;border-collapse:collapse;font-size:15.5px;font-variant-numeric:tabular-nums}
+.offer td{padding:15px 32px;border-top:1px solid rgba(218,166,110,.1)}
+.offer td:last-child{text-align:right;white-space:nowrap;color:rgba(245,240,232,.6);text-decoration:line-through;text-decoration-color:rgba(229,103,95,.7)}
+.offer tr.total td{font-weight:700;color:var(--cream)}
+.offer tr.total td:last-child{color:rgba(245,240,232,.75)}
+.price{padding:28px 32px 34px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;background:linear-gradient(180deg,rgba(139,26,26,0),rgba(139,26,26,.35))}
+.price .lead{font-size:15px;color:rgba(245,240,232,.78);max-width:42ch}
+.price .big{font-family:var(--font-head);font-size:64px;line-height:1;font-weight:700;color:var(--cream);font-variant-numeric:tabular-nums}
+.price .big small{font-size:22px;font-weight:600;vertical-align:22px;margin-right:4px;color:var(--blush)}
+.price .inst{font-size:15px;color:var(--blush)}
+.price .btn{width:100%}
+.seals{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font-size:12.5px;color:rgba(245,240,232,.6)}
+.seals span{display:inline-flex;align-items:center;gap:6px}
+.seals svg{width:14px;height:14px;fill:none;stroke:var(--ok);stroke-width:2}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:12px;max-width:780px;width:100%;align-self:center}
+.faq details{background:#fff;border:1px solid rgba(139,26,26,.13);border-radius:16px}
+.faq summary{
+  list-style:none;cursor:pointer;padding:20px 24px;display:flex;justify-content:space-between;gap:16px;align-items:center;
+  font-weight:600;font-size:16.5px;color:var(--espresso);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:var(--berry);transition:transform .2s;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 24px 22px;font-size:15.5px;color:rgba(20,20,20,.85);max-width:65ch}
+
+/* Fechamento */
+.closing{text-align:center;align-items:center}
+.closing h2{font-size:clamp(30px,4.6vw,50px);max-width:800px}
+.closing p{font-size:18px;color:rgba(245,240,232,.8);max-width:56ch}
+
+footer{background:var(--noir);color:rgba(245,240,232,.5);font-size:13px;text-align:center;padding:28px max(20px,env(safe-area-inset-right,0px)) 28px max(20px,env(safe-area-inset-left,0px));border-top:1px solid rgba(218,166,110,.08)}
+
+/* Barra fixa */
+.stickybar{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:rgba(20,20,20,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid rgba(218,166,110,.16);
+  padding:12px max(20px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));
+}
+.stickybar .in{max-width:var(--wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.stickybar .p{display:flex;flex-direction:column;line-height:1.25}
+.stickybar .p b{font-family:var(--font-head);font-size:22px;color:var(--cream)}
+.stickybar .p span{font-size:12.5px;color:var(--rose-gold)}
+.stickybar .btn{padding:14px 24px;font-size:13px}
+
+/* Entrada da hero */
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+  @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+}
+
+@media (max-width:920px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .week{grid-template-columns:repeat(2,1fr)}
+  .method,.levels,.who,.gifts{grid-template-columns:1fr}
+  .gift.featured{grid-column:auto}
+  .feat,.feat.rev{grid-template-columns:1fr;gap:24px}
+  .feat.rev > figure{order:0}
+}
+@media (max-width:680px){
+  .band{padding-block:64px}
+  .hero{padding-block:44px 64px}
+  .vs,.deliver,.pains,.week{grid-template-columns:1fr}
+  .slot{grid-template-columns:64px 1fr;gap:4px 14px;padding:16px 18px}
+  .slot .o{grid-column:2}
+  .topbar .date{display:none}
+  .hero .cta-row{align-items:stretch}
+  .hero .btn{width:100%}
+  .offer td{padding:14px 20px}
+  .offer .top,.price{padding-left:20px;padding-right:20px}
+  .price .big{font-size:54px}
+  .stickybar .btn{padding:13px 18px;font-size:12px}
+  .feats{gap:56px}
+  .vs-col{padding:22px}
+}
+/* Impact não tem itálico nem negrito: evita versões falsas */
+.brand,.brand i,.hero .sub strong,.pull,.pull span,.analogy,.verdict,.step .n,.subhead,.day b,.slot .b,.callout b,.price .big,.price .big small,.stickybar .p b{font-style:normal;font-weight:400}
+.brand,.hero .sub strong,.pull,.verdict,.subhead,.callout b{text-transform:uppercase}
+.slot .b{font-family:var(--font-body);font-weight:700;font-size:16.5px}
+.analogy{font-family:var(--font-body);font-style:italic;font-weight:300}
+</style>
+
+<header class="topbar">
+  <div class="in">
+    <a class="brand" href="#topo">Claude <i>pra Doutoras</i></a>
+    <span class="date">DOM · 22/11 · AO VIVO</span>
+    <a class="btn mini" href="#oferta">Garantir vaga</a>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- DOBRA 1 -->
+<section class="band dark hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="badges rise">
+          <span class="badge live">Ao vivo · domingo 22/11</span>
+          <span class="badge">9h às 16h30 · Online</span>
+        </div>
+        <h1 class="rise" style="--d:.08s">Acelere <em class="hl">10 anos</em> do crescimento da sua clínica com a ferramenta de inteligência artificial mais revolucionária do momento.</h1>
+        <p class="sub rise" style="--d:.16s"><strong>Aprenda a dominar o Claude do zero ao avançado.</strong>Workshop Claude pra Doutoras ao vivo no domingo, dia 22/11, das 9h às 16h30, para a doutora que decidiu tratar a própria clínica como uma empresa.</p>
+        <div class="cta-row rise" style="--d:.24s">
+          <a class="btn" href="#oferta">Quero acelerar a minha clínica <span class="arrow">→</span></a>
+          <span class="cta-note">R$ 27,90 à vista ou 12x de R$ 2,32</span>
+        </div>
+        <div class="facts rise" style="--d:.3s">
+          <span>Conta gratuita do Claude basta</span>
+          <span>Tudo em português</span>
+          <span>Você constrói com os dados da sua clínica</span>
+        </div>
+      </div>
+
+      <div class="claude-name rise" style="--d:.2s">
+        <svg class="mark" role="img" aria-label="Logo do Claude" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="hsl(14.8, 63.1%, 59.6%)"><path d="m19.6 66.5 19.7-11 .3-1-.3-.5h-1l-3.3-.2-11.2-.3L14 53l-9.5-.5-2.4-.5L0 49l.2-1.5 2-1.3 2.9.2 6.3.5 9.5.6 6.9.4L38 49.1h1.6l.2-.7-.5-.4-.4-.4L29 41l-10.6-7-5.6-4.1-3-2-1.5-2-.6-4.2 2.7-3 3.7.3.9.2 3.7 2.9 8 6.1L37 36l1.5 1.2.6-.4.1-.3-.7-1.1L33 25l-6-10.4-2.7-4.3-.7-2.6c-.3-1-.4-2-.4-3l3-4.2L28 0l4.2.6L33.8 2l2.6 6 4.1 9.3L47 29.9l2 3.8 1 3.4.3 1h.7v-.5l.5-7.2 1-8.7 1-11.2.3-3.2 1.6-3.8 3-2L61 2.6l2 2.9-.3 1.8-1.1 7.7L59 27.1l-1.5 8.2h.9l1-1.1 4.1-5.4 6.9-8.6 3-3.5L77 13l2.3-1.8h4.3l3.1 4.7-1.4 4.9-4.4 5.6-3.7 4.7-5.3 7.1-3.2 5.7.3.4h.7l12-2.6 6.4-1.1 7.6-1.3 3.5 1.6.4 1.6-1.4 3.4-8.2 2-9.6 2-14.3 3.3-.2.1.2.3 6.4.6 2.8.2h6.8l12.6 1 3.3 2 1.9 2.7-.3 2-5.1 2.6-6.8-1.6-16-3.8-5.4-1.3h-.8v.4l4.6 4.5 8.3 7.5L89 80.1l.5 2.4-1.3 2-1.4-.2-9.2-7-3.6-3-8-6.8h-.5v.7l1.8 2.7 9.8 14.7.5 4.5-.7 1.4-2.6 1-2.7-.6-5.8-8-6-9-4.7-8.2-.5.4-2.9 30.2-1.3 1.5-3 1.2-2.5-2-1.4-3 1.4-6.2 1.6-8 1.3-6.4 1.2-7.9.7-2.6v-.2H49L43 72l-9 12.3-7.2 7.6-1.7.7-3-1.5.3-2.8L24 86l10-12.8 6-7.9 4-4.6-.1-.5h-.3L17.2 77.4l-4.7.6-2-2 .2-3 1-1 8-5.5Z"></path></svg>
+        <span class="k">A ferramenta</span>
+        <b>Claude</b>
+        <p class="s">A inteligência artificial que entende o negócio inteiro e constrói o que a clínica precisa a partir de uma conversa em português.</p>
+        <div class="lv"><span>Gratuito</span><span>Pro</span><span>Code</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOBRA 2 -->
+<section class="band choc">
+  <div class="wrap">
+    <div class="contrast">
+      <span class="eyebrow">A quebra de crença</span>
+      <h2 style="font-size:clamp(28px,4.2vw,44px)">Se o ChatGPT é a ferramenta mais avançada da sua rotina, você está parada no <em class="hl">primeiro degrau</em> da inteligência artificial.</h2>
+      <p>O ChatGPT apresentou a IA para o mundo em 2022 e virou a ferramenta de quem está começando. Ele ficou familiar e confortável, e esse conforto custa caro para quem tem uma empresa para fazer crescer. As empresárias mais rápidas da estética já estão no Claude, a inteligência artificial que entende o negócio inteiro e constrói o que a clínica precisa a partir de uma conversa em português.</p>
+      <div class="pull">
+        <span>O ChatGPT foi a porta de entrada.</span>
+        <span>O Claude é onde a sua empresa começa a ser construída.</span>
+      </div>
+    </div>
+
+    <div class="vs">
+      <div class="vs-col vs-old">
+        <h3>A doutora que ficou no ChatGPT</h3>
+        <ul>
+          <li>explica quem ela é a cada conversa nova</li>
+          <li>recebe um texto e ainda precisa transformar em alguma coisa</li>
+          <li>pede dicas para organizar o comercial e o financeiro</li>
+          <li>continua sendo a equipe inteira da clínica</li>
+        </ul>
+      </div>
+      <div class="vs-col vs-new">
+        <h3>A doutora que domina o Claude</h3>
+        <ul>
+          <li>tem um Projeto que já conhece a clínica, a paciente e o jeito dela falar</li>
+          <li>recebe o site pronto, com link para a paciente</li>
+          <li>vê o CRM e a margem de cada procedimento na tela</li>
+          <li>comanda uma equipe de inteligência artificial</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="analogy">Usar só o ChatGPT hoje é como marcar paciente na agenda de papel: funciona, e a clínica cresce só até onde o caderno aguenta.</p>
+
+    <div class="cta-row">
+      <a class="btn" href="#oferta">Quero acelerar a minha clínica <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<dialog class="lightbox" id="lightbox" aria-label="Imagem ampliada">
+  <img id="lightbox-img" src="" alt="">
+  <button type="button" class="close" id="lightbox-close" aria-label="Fechar">×</button>
+</dialog>
+
+<!-- ENTREGAS -->
+<section class="band light">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Domingo, 22/11</span>
+      <h2>No fim do dia, você sai <em class="hl">com isso pronto</em></h2>
+    </div>
+    <ul class="deliver">
+      <li class="wide">A gerente da sua clínica criada no Claude, conhecendo procedimentos, valores, paciente e o seu jeito de falar</li>
+      <li>3 gerentes de conteúdo e a skill de relatório diário para a secretária</li>
+      <li>O primeiro site da sua clínica no ar, com link</li>
+      <li>O comercial organizado: follow-ups do dia, procedimentos mais procurados e objeções que travam a venda</li>
+      <li>O financeiro de empresária: margem real de cada procedimento, meta e alerta de estoque</li>
+      <li>3 skills de presente: plano de tratamento, análise de concorrentes e diagnóstico de perfil</li>
+      <li>O mapa do avançado com o Claude Pro e o Claude Code</li>
+    </ul>
+    <figure class="pic wide-pic">
+      <button type="button" class="shot"><img src="img/guia-pos-procedimento.webp" width="1600" height="900" alt="Guia pós-procedimento que a paciente abre no celular, com cuidados do dia 1 ao 30 e QR code" loading="lazy"></button>
+      <figcaption class="ill">Um site feito com o Claude: o guia pós-procedimento que a paciente abre pelo link ou pelo QR code.</figcaption>
+    </figure>
+    <div class="cta-row">
+      <a class="btn" href="#oferta">Quero acelerar a minha clínica <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="band dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O problema</span>
+      <h2>A sua técnica já está pronta para uma clínica muito maior. A estrutura em volta dela <em class="hl">ainda depende de você</em> para tudo.</h2>
+      <p>A clínica cobra conteúdo todo dia, WhatsApp, orçamento, follow-up, insumo, preço, meta e equipe, e quase tudo isso mora na sua cabeça.</p>
+    </div>
+    <ul class="pains">
+      <li>Você atende o dia inteiro e ainda pensa no post de amanhã à noite</li>
+      <li>A paciente pede orçamento, some, e ninguém chama de volta</li>
+      <li>O procedimento que mais sai pode ser o que menos dá lucro</li>
+      <li>Você usa o ChatGPT para tarefas soltas, e a clínica continua do mesmo tamanho</li>
+    </ul>
+    <p class="verdict">Quando a doutora é a equipe inteira, o teto da clínica é o tamanho da agenda dela.</p>
+  </div>
+</section>
+
+<!-- SOLUÇÃO -->
+<section class="band blushband">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">A solução</span>
+      <h2>O trabalho de <em class="hl">10 profissionais</em> em 1 ferramenta</h2>
+      <p>Você vê cada uma dessas funções rodando no Claude durante o workshop. Faça a conta do salário de 10 profissionais contra uma ferramenta que você começa a usar de graça.</p>
+    </div>
+    <div class="roles">
+      <span>Redatora</span><span>Estrategista de conteúdo</span><span>Pesquisadora científica</span>
+      <span>Desenvolvedora de sites</span><span>Secretária executiva</span><span>Gestora comercial</span>
+      <span>Consultora financeira</span><span>Gestora de estoque</span><span>Analista de marketing</span>
+      <span>Assistente clínica</span>
+    </div>
+
+    <p class="subhead">O Método <em class="hl">CEO da Clínica</em></p>
+    <div class="method">
+      <div class="step"><span class="n">1</span><h3>Contexto</h3><p>O Claude aprende quem você é, como a clínica funciona e como você fala.</p></div>
+      <div class="step"><span class="n">2</span><h3>Estrutura</h3><p>Você constrói site, CRM, financeiro e plano de tratamento.</p></div>
+      <div class="step"><span class="n">3</span><h3>Operação</h3><p>Tudo roda no dia a dia com pedidos prontos e skills.</p></div>
+    </div>
+
+    <p class="subhead">Os 3 níveis do Claude</p>
+    <div class="levels">
+      <div class="level here"><span class="tag">Você começa aqui</span><h3>Claude gratuito</h3><p>Projetos com a memória da clínica, skills, pesquisa com fonte e sites com link. É onde você começa no workshop.</p></div>
+      <div class="level"><span class="tag">Próximo passo</span><h3>Claude Pro</h3><p>Sistemas que guardam os dados, tarefas agendadas e o Claude navegando na internet por você.</p></div>
+      <div class="level"><span class="tag">Avançado</span><h3>Claude Code</h3><p>Sistemas e aplicativos completos, sob medida para a sua clínica.</p></div>
+    </div>
+
+    <div class="feat rev">
+      <figure class="pic">
+        <button type="button" class="shot"><img src="img/app-social-media.webp" width="1600" height="900" alt="Aplicativo com ideia do dia, próximas datas comerciais e semana de conteúdo" loading="lazy"></button>
+      </figure>
+      <div class="feat-copy">
+        <span class="when">Onde o Claude Code chega</span>
+        <h3>Um aplicativo que funciona como a sua social media</h3>
+        <p>Ideias estratégicas de conteúdo todos os dias e as próximas datas sazonais para ações comerciais. No fim do workshop, você vê o mapa para chegar nesse nível.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMANA -->
+<section class="band choc">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Depois do workshop</span>
+      <h2>O que muda na sua semana</h2>
+    </div>
+    <div class="feats">
+      <div class="feat">
+        <figure class="pic">
+          <button type="button" class="shot"><img src="img/gerentes-conteudo.webp" width="1600" height="900" alt="Gerente de tendências e gerente nerd com a pauta da semana" loading="lazy"></button>
+        </figure>
+        <div class="feat-copy">
+          <span class="when">Segunda de manhã</span>
+          <h3>A pauta da semana chega pronta</h3>
+          <p>Você dispara os gerentes de conteúdo e recebe tendências, datas e artigos da sua área. Um busca as tendências e as datas da mídia, o outro encontra artigos científicos e resume com a fonte.</p>
+        </div>
+      </div>
+      <div class="feat rev">
+        <figure class="pic">
+          <button type="button" class="shot"><img src="img/painel-secretaria.webp" width="1600" height="900" alt="Painel da secretária com follow-ups atrasados e de hoje, procedimentos mais procurados e objeções" loading="lazy"></button>
+        </figure>
+        <div class="feat-copy">
+          <span class="when">Na recepção</span>
+          <h3>A secretária sabe quem chamar</h3>
+          <p>Ela abre o CRM e vê os atrasados em vermelho e os de hoje em amarelo. Você acompanha pelo celular, junto com os procedimentos mais procurados e as objeções que travam a venda.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <figure class="pic">
+          <button type="button" class="shot"><img src="img/plano-tratamento.webp" width="1600" height="900" alt="Skill de plano de tratamento com versão da paciente em 3 fases e manutenção" loading="lazy"></button>
+        </figure>
+        <div class="feat-copy">
+          <span class="when">Na avaliação</span>
+          <h3>Um plano de tratamento que a paciente entende na hora</h3>
+          <p>Você manda idade, queixa e avaliação, e o plano chega em 2 versões: a técnica, para você, e uma apresentação elegante para a paciente.</p>
+        </div>
+      </div>
+      <div class="feat rev">
+        <figure class="pic">
+          <button type="button" class="shot"><img src="img/financeiro.webp" width="1600" height="900" alt="Financeiro do mês com meta, combinações que fecham o mês, margem por procedimento e alerta de estoque" loading="lazy"></button>
+        </figure>
+        <div class="feat-copy">
+          <span class="when">No fim do mês</span>
+          <h3>Você sabe quanto falta para a meta</h3>
+          <p>Você vê o lucro real de cada procedimento, a combinação que fecha o mês e o que precisa comprar de insumo antes da agenda da semana.</p>
+        </div>
+      </div>
+    </div>
+    <p class="verdict">Essa é a doutora que lidera o mercado: domina a técnica e comanda a empresa.</p>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="band light">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Para quem é</span>
+      <h2>Feito para quem tem <em class="hl">pacientes</em></h2>
+    </div>
+    <div class="who">
+      <div class="who-card"><h3>Quem é</h3><p>Dermatologistas, harmonizadoras, biomédicas, dentistas e profissionais da saúde e estética com clínica ou consultório.</p></div>
+      <div class="who-card"><h3>O problema</h3><p>Domina a técnica, faz quase tudo sozinha e só cresce quando trabalha mais horas.</p></div>
+      <div class="who-card"><h3>O desejo</h3><p>Uma clínica organizada, premium e com números claros, crescendo enquanto ela atende.</p></div>
+    </div>
+    <div class="callout">
+      <b>Se você usa o ChatGPT e acha que já sabe tudo que a IA pode fazer, esse workshop foi feito principalmente para você.</b>
+      <span>E se você manda áudio no WhatsApp, já tem toda a habilidade técnica que precisa.</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMAÇÃO -->
+<section class="band dark" id="programacao">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">O workshop</span>
+      <h2>Um domingo inteiro construindo a sua clínica</h2>
+    </div>
+    <div class="agenda-meta">
+      <span class="badge live">Ao vivo</span><span class="badge">22/11</span><span class="badge">9h às 16h30</span><span class="badge">Online</span>
+    </div>
+    <p class="prep">Antes do dia, você preenche um formulário com os dados da sua clínica e constrói tudo ao vivo com as suas próprias informações.</p>
+    <div class="agenda">
+      <div class="slot"><span class="t">9h</span><span class="b">A nova era da inteligência artificial</span><span class="o">a visão do que é possível na sua clínica</span></div>
+      <div class="slot"><span class="t">10h</span><span class="b">A gerente da sua clínica: Projetos e skills</span><span class="o">o Projeto da clínica criado</span></div>
+      <div class="slot"><span class="t">10h30</span><span class="b">Gerentes de conteúdo: tendências, artigos e famosos</span><span class="o">3 rotinas de conteúdo salvas</span></div>
+      <div class="slot"><span class="t">11h</span><span class="b">Sites com o Claude</span><span class="o">o primeiro site da clínica no ar</span></div>
+      <div class="slot"><span class="t">11h40</span><span class="b">Preparação para o mão na massa</span><span class="o">os dados prontos para a tarde</span></div>
+      <div class="slot pause"><span class="t">12h</span><span class="b">Almoço</span></div>
+      <div class="slot"><span class="t">13h30</span><span class="b">A secretária que não esquece ninguém</span><span class="o">o comercial organizado</span></div>
+      <div class="slot"><span class="t">14h30</span><span class="b">O financeiro de empresária</span><span class="o">preço, meta e estoque sob controle</span></div>
+      <div class="slot pause"><span class="t">15h30</span><span class="b">Pausa</span></div>
+      <div class="slot bonus"><span class="t">15h45</span><span class="b">Análise de concorrentes ao vivo</span><span class="o">o método para achar o espaço livre no seu mercado</span></div>
+      <div class="slot"><span class="t">16h</span><span class="b">Análise de perfil ao vivo</span><span class="o">como avaliar e ajustar o seu Instagram</span></div>
+      <div class="slot"><span class="t">16h15</span><span class="b">O mapa do avançado: Claude Pro e Claude Code</span><span class="o">o seu próximo passo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS -->
+<section class="band blushband">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Bônus</span>
+      <h2>Skills prontas para <em class="hl">levar para casa</em></h2>
+    </div>
+    <figure class="pic wide-pic">
+      <button type="button" class="shot"><img src="img/concorrentes.webp" width="1600" height="900" alt="Análise de 3 concorrentes com promessa, produto, formato, dor e o espaço livre no mercado" loading="lazy"></button>
+      <figcaption class="ill">A skill de análise de concorrentes em ação.</figcaption>
+    </figure>
+      <div class="gifts">
+        <div class="gift featured"><span class="k">Skill</span><h3>Plano de tratamento</h3><p>Aprende o seu raciocínio clínico e monta cada plano do seu jeito.</p></div>
+        <div class="gift"><span class="k">Skill</span><h3>Análise de concorrentes</h3><p>Mapeia o que cada concorrente promete, vende e posta, e mostra o espaço livre.</p></div>
+        <div class="gift"><span class="k">Skill</span><h3>Diagnóstico de perfil</h3><p>Avalia o seu Instagram e aponta o que ajustar.</p></div>
+        <div class="gift"><span class="k">Skill</span><h3>Criação de conteúdo</h3><p>Escreve no seu tom, para a sua paciente.</p></div>
+        <div class="gift"><span class="k">Skill</span><h3>Financeiro e vendas</h3><p>Ajuda a organizar o financeiro e o comercial da sua clínica.</p></div>
+      </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="band dark" id="oferta">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Recapitulando</span>
+      <h2>Tudo o que você leva no dia 22/11</h2>
+    </div>
+    <div class="offer">
+      <div class="top">
+        <span class="eyebrow">Workshop Claude para Clínicas</span>
+      </div>
+      <table>
+        <tbody>
+          <tr><td>Workshop ao vivo, do zero ao avançado sobre o Claude</td><td>R$ 290,00</td></tr>
+          <tr><td>Skills especializadas para estética</td><td>R$ 150,00</td></tr>
+          <tr><td>Planilhas modelo de CRM e estoque</td><td>R$ 490,00</td></tr>
+          <tr class="total"><td>Total</td><td>R$ 930,00</td></tr>
+        </tbody>
+      </table>
+      <div class="price">
+        <p class="lead">Tudo isso deveria custar R$ 930,00. Hoje você garante por menos que o valor de um almoço.</p>
+        <div class="big"><small>R$</small>27,90</div>
+        <span class="inst">à vista ou 12x de R$ 2,32</span>
+        <a class="btn" href="#checkout" data-checkout>Quero a minha vaga no dia 22/11 <span class="arrow">→</span></a>
+        <div class="seals">
+          <span><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Compra 100% segura</span>
+          <span><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Cartão em até 12x</span>
+          <span><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Pix com liberação imediata</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band light">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Eu já uso o ChatGPT. Serve para mim?</summary><p class="a">Serve principalmente para você: você já tem a base e está pronta para o próximo nível.</p></details>
+      <details><summary>Preciso pagar o Claude?</summary><p class="a">Para o workshop, a conta gratuita basta. No fim do dia, você conhece o Pro e o Claude Code e decide o próximo passo.</p></details>
+      <details><summary>Preciso entender de tecnologia?</summary><p class="a">Tudo é feito conversando em português, passo a passo.</p></details>
+      <details><summary>Posso assistir pelo celular?</summary><p class="a">Para assistir, sim. Para construir junto, o ideal é o notebook.</p></details>
+      <details><summary>Vai ficar gravado?</summary><p class="a">Não. O workshop acontece só ao vivo, no dia 22/11.</p></details>
+      <details><summary>Os dados das minhas pacientes ficam seguros?</summary><p class="a">Você aprende a usar o Claude sem expor dados sensíveis, como CPF, foto ou prontuário de paciente.</p></details>
+      <details><summary>O que preciso ter no dia?</summary><p class="a">Notebook, conta no Claude criada e o formulário que vamos encaminhar no grupo respondido.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FECHAMENTO -->
+<section class="band choc">
+  <div class="wrap closing">
+    <span class="eyebrow">Domingo, 22/11 · 9h</span>
+    <h2>Domine a técnica. <em class="hl">Comande a empresa.</em></h2>
+    <p>Um domingo para sair com a gerente da sua clínica, o site no ar, o comercial e o financeiro organizados.</p>
+    <div class="cta-row">
+      <a class="btn" href="#oferta">Quero a minha vaga no dia 22/11 <span class="arrow">→</span></a>
+      <span class="cta-note">R$ 27,90 à vista ou 12x de R$ 2,32</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>Workshop Claude pra Doutoras · 22/11 · Online e ao vivo</footer>
+
+<div class="stickybar" role="region" aria-label="Garantir vaga">
+  <div class="in">
+    <div class="p"><b>R$ 27,90</b><span>ou 12x de R$ 2,32 · 22/11 ao vivo</span></div>
+    <a class="btn" href="#checkout" data-checkout>Garantir vaga <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<script>
+  // Troque pelo link do checkout (Hotmart, Kiwify, Eduzz...). Enquanto vazio, o botão leva para a oferta.
+  const CHECKOUT_URL = "";
+  document.querySelectorAll("[data-checkout]").forEach(a => {
+    a.href = CHECKOUT_URL || "#oferta";
+  });
+
+  // Ampliar imagem
+  const box = document.getElementById("lightbox");
+  const boxImg = document.getElementById("lightbox-img");
+  document.querySelectorAll(".shot").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const img = btn.querySelector("img");
+      boxImg.src = img.currentSrc || img.src;
+      boxImg.alt = img.alt;
+      if (box.showModal) box.showModal();
+    });
+  });
+  document.getElementById("lightbox-close").addEventListener("click", () => box.close());
+  box.addEventListener("click", e => { if (e.target === box) box.close(); });
+</script>
